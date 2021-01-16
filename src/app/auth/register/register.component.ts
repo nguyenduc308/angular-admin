@@ -1,7 +1,7 @@
 import { genarateFormField } from '@/shared/helpers/genarate-form-fields';
 import { IFormField } from '@/shared/interfaces/form-field';
 import { ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { REGISTER_CMS_CONFIG } from './register-cms';
 @Component({
   selector: 'app-login',
@@ -37,7 +37,21 @@ export class RegisterComponent {
   submit() {
     console.log(this.form.value);
   }
-  validateConfirmPassword(control): {[key: string]: any} {
-    return {}
+  validateConfirmPassword(control: FormControl): {[key: string]: any} | null {
+    if (this.form) {
+      if (control.errors && Object.keys(control.errors).length) {
+        return null;
+      }
+      const passwordControl = this.form.get('password');
+      if (!passwordControl.value && passwordControl.invalid) {
+        return null
+      }
+      if (passwordControl.value !== control.value) {
+        return {
+          'confirmPassword': true
+        }
+      }
+      return null;
+    }
   }
 }
