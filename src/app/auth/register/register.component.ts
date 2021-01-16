@@ -1,12 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LOGIN_CMS_CONFIG } from './login-cms';
+import { LOGIN_CMS_CONFIG } from './register-cms';
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
+  templateUrl: './register.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class LoginComponent {
+export class RegisterComponent {
   form: FormGroup;
   config = LOGIN_CMS_CONFIG;
 
