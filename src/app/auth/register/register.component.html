@@ -1,6 +1,6 @@
 <div class="login-page">
     <form [formGroup]="form" class="auth-form" (submit)="submit()">
-        <ng-container  *ngFor="let field of config.fields">
+        <ng-container *ngFor="let field of config.fields">
             <div class="p-float-label form-group">
                 <input 
                     class="float-input" 

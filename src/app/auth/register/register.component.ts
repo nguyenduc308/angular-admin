@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LOGIN_CMS_CONFIG } from './register-cms';
+import { REGISTER_CMS_CONFIG } from './register-cms';
 @Component({
   selector: 'app-login',
   templateUrl: './register.component.html',
@@ -8,7 +8,7 @@ import { LOGIN_CMS_CONFIG } from './register-cms';
 })
 export class RegisterComponent {
   form: FormGroup;
-  config = LOGIN_CMS_CONFIG;
+  config = REGISTER_CMS_CONFIG;
 
   constructor(private _fb: FormBuilder) {
     this.createForm();

@@ -1,4 +1,4 @@
-export const LOGIN_CMS_CONFIG = Object.freeze({
+export const REGISTER_CMS_CONFIG = Object.freeze({
   submitLabel: 'Đăng ký',
   fields: [
     {
@@ -42,6 +42,16 @@ export const LOGIN_CMS_CONFIG = Object.freeze({
     {
       label: 'Password',
       id: 'password',
+      value: '',
+      text: 'text',
+      validationRules: [
+        ['required', 'Password is required'],
+        ['minLength', 'Password must be has length than 6', 6],
+      ],
+    },
+    {
+      label: 'Confirm Password',
+      id: 'confirmPassword',
       value: '',
       text: 'text',
       validationRules: [

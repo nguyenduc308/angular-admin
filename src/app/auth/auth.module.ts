@@ -8,6 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { LoginComponent } from './login/login.component';
     InputTextModule,
     ButtonModule,
   ],
-  declarations: [AuthComponent, LoginComponent],
+  declarations: [AuthComponent, LoginComponent, RegisterComponent],
 })
 export class AuthModule {}
