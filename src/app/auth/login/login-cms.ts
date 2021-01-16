@@ -1,11 +1,11 @@
-import { ILoginConfig } from "./login.interface";
+import { ILoginConfig } from './login.interface';
 
 export const LOGIN_CMS_CONFIG: ILoginConfig = {
   submitLabel: 'Đăng nhập',
   fields: {
-    phoneNumber: {
+    phone: {
       label: 'Phone number',
-      id: 'phoneNumber',
+      id: 'phone',
       value: '',
       type: 'text',
       validationRules: [
