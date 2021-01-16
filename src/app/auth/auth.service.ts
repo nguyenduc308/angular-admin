@@ -13,4 +13,7 @@ export class AuthService {
   login(credentials: ILoginRequest): Observable<any> {
     return this._http.post('/auth/login', credentials);
   }
+  register(data: any) {
+    return this._http.post('/auth/register', data);
+  }
 }

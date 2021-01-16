@@ -31,9 +31,9 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       type: 'text',
       validationRules: [['required', 'Email is required']],
     },
-    phoneNumber: {
+    phone: {
       label: 'Phone number',
-      id: 'phoneNumber',
+      id: 'phone',
       value: '',
       type: 'text',
       validationRules: [
@@ -56,10 +56,7 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       id: 'confirmPassword',
       value: '',
       type: 'text',
-      validationRules: [
-        ['required', 'Password is required'],
-        ['confirmPassword', 'Confirm Password do not match'],
-      ],
+      validationRules: [['required', 'Password is required']],
     },
   },
 };

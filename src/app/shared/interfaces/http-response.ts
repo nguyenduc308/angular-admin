@@ -3,10 +3,10 @@ export enum ETokenStatus {
   INVALID = 'INVALID',
 }
 export interface IVerifyTokenResponse {
-  accessTokenExpirationTime: number;
-  refreshTokenExpirationTime: number;
+  accessTokenExpirationTime?: number;
+  refreshTokenExpirationTime?: number;
   code: ETokenStatus;
   message: string;
-  id: string;
-  role: string;
+  id?: string;
+  role?: string;
 }

@@ -15,20 +15,24 @@ export class RegisterComponent {
 
   constructor(
     private _fb: FormBuilder,
-    private readonly cdr: ChangeDetectorRef
+    private readonly _cdr: ChangeDetectorRef
   ) {
-    this.createForm();
+    this.createFormAndFields();
   }
 
-  createForm() {
-    this.fields = Object.values(this.config.fields);
+  createFormAndFields() {
     let formFields = genarateFormField(this.config.fields);
     if (formFields.confirmPassword) {
+      this.config.fields['confirmPassword'].validationRules.push([
+        'confirmPassword',
+        'Confirm Password do not match',
+      ]);
       formFields.confirmPassword[1].push(
         this.validateConfirmPassword.bind(this)
       );
-      this.cdr.markForCheck();
+      this._cdr.markForCheck();
     }
+    this.fields = Object.values(this.config.fields);
     this.form = this._fb.group(formFields);
   }
   onFieldChange(e) {
@@ -39,21 +43,22 @@ export class RegisterComponent {
     console.log(this.form.value);
   }
   validateConfirmPassword(control: FormControl): { [key: string]: any } | null {
-    if (this.form) {
-      if (control.errors && control.hasError('required')) {
-        return null;
-      }
-      const passwordControl = this.form.get('password');
-      if (!passwordControl.value && passwordControl.invalid) {
-        return null;
-      }
-      if (passwordControl.value !== control.value) {
-        return {
-          confirmpassword: true,
-        };
-      }
+    if (!this.form) {
       return null;
     }
+    if (control.errors && control.hasError('required')) {
+      return null;
+    }
+    const passwordControl = this.form.get('password');
+    if (!passwordControl.value && passwordControl.invalid) {
+      return null;
+    }
+    if (passwordControl.value !== control.value) {
+      return {
+        confirmpassword: true,
+      };
+    }
+    return null;
   }
   trackingFn(index: number, item: IFormField): string | number {
     return item.id || index;

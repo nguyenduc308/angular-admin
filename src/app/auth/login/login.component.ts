@@ -26,7 +26,6 @@ export class LoginComponent {
     this.fields = Object.values(this.config.fields);
     let formFields = genarateFormField(this.config.fields);
     this.form = this._fb.group(formFields);
-    this.form.reset();
   }
   onFieldChange(e) {}
 

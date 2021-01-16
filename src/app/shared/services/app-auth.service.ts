@@ -30,7 +30,6 @@ export class AppAuthService {
       .pipe(
         tap((res) => {
           this.setAuth(res.code === ETokenStatus.VALID);
-          console.log(res.code === ETokenStatus.VALID);
         }),
         catchError((err) => {
           this.setAuth(false);
