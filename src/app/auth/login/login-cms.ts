@@ -1,4 +1,6 @@
-export const LOGIN_CMS_CONFIG = Object.freeze({
+import { ILoginConfig } from "./login.interface";
+
+export const LOGIN_CMS_CONFIG: ILoginConfig = {
   submitLabel: 'Đăng nhập',
   fields: [
     {
@@ -15,11 +17,11 @@ export const LOGIN_CMS_CONFIG = Object.freeze({
       label: 'Password',
       id: 'password',
       value: '',
-      text: 'text',
+      type: 'text',
       validationRules: [
         ['required', 'Password is required'],
         ['minLength', 'Password must be has length than 6', 6],
       ],
     },
   ],
-});
+};

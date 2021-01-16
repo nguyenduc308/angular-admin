@@ -1,32 +1,34 @@
-export const REGISTER_CMS_CONFIG = Object.freeze({
+import { IRegisterConfig } from "./register.interface";
+
+export const REGISTER_CMS_CONFIG: IRegisterConfig = {
   submitLabel: 'Đăng ký',
   fields: [
     {
       label: 'First Name',
       id: 'firstName',
       value: '',
-      text: 'text',
+      type: 'text',
       validationRules: [],
     },
     {
       label: 'Last Name',
       id: 'lastName',
       value: '',
-      text: 'text',
+      type: 'text',
       validationRules: [],
     },
     {
       label: 'Address',
       id: 'address',
       value: '',
-      text: 'text',
+      type: 'text',
       validationRules: [],
     },
     {
       label: 'Email Address',
       id: 'email',
       value: '',
-      text: 'text',
+      type: 'text',
       validationRules: [],
     },
     {
@@ -43,7 +45,7 @@ export const REGISTER_CMS_CONFIG = Object.freeze({
       label: 'Password',
       id: 'password',
       value: '',
-      text: 'text',
+      type: 'text',
       validationRules: [
         ['required', 'Password is required'],
         ['minLength', 'Password must be has length than 6', 6],
@@ -53,11 +55,11 @@ export const REGISTER_CMS_CONFIG = Object.freeze({
       label: 'Confirm Password',
       id: 'confirmPassword',
       value: '',
-      text: 'text',
+      type: 'text',
       validationRules: [
         ['required', 'Password is required'],
         ['minLength', 'Password must be has length than 6', 6],
       ],
     },
   ],
-});
+}

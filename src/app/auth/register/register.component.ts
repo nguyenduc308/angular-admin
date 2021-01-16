@@ -1,3 +1,4 @@
+import { genarateFormField } from '@/shared/helpers/genarate-form-fields';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { REGISTER_CMS_CONFIG } from './register-cms';
@@ -15,16 +16,7 @@ export class RegisterComponent {
   }
 
   createForm() {
-    let formFields = {};
-    this.config.fields.forEach((item) => {
-      const validations = item.validationRules.map((rule) => {
-        if (rule.length === 3) {
-          return Validators[rule[0]](rule[2]);
-        }
-        return Validators[rule[0]];
-      });
-      formFields[item.id] = [item.value, validations];
-    });
+    let formFields = genarateFormField(this.config.fields);
     this.form = this._fb.group(formFields);
   }
   onFieldChange(e) {
