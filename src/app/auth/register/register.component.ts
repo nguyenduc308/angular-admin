@@ -31,7 +31,7 @@ export class RegisterComponent {
     this.form = this._fb.group(formFields);
   }
   onFieldChange(e) {
-    console.log(e);
+    console.log(e.target.name);
   }
 
   submit() {
@@ -48,7 +48,7 @@ export class RegisterComponent {
       }
       if (passwordControl.value !== control.value) {
         return {
-          'confirmPassword': true
+          'confirmpassword': true
         }
       }
       return null;

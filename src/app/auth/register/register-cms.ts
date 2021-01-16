@@ -29,7 +29,9 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       id: 'email',
       value: '',
       type: 'text',
-      validationRules: [],
+      validationRules: [
+        ['required', 'Email is required']
+      ],
     },
     phoneNumber: {
       label: 'Phone number',
@@ -58,7 +60,6 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       type: 'text',
       validationRules: [
         ['required', 'Password is required'],
-        ['minLength', 'Password must be has length than 6', 6],
       ],
     },
   },

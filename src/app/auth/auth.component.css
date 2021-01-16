@@ -2,8 +2,11 @@
   margin-top: 100px;
 }
 .form-group {
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 .auth-form__footer {
   margin-top: 30px;
+}
+.error-message-area {
+  height: 40px;
 }

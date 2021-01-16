@@ -12,13 +12,15 @@
                 />
                 <label [for]="field.id">{{field.label}}</label>
             </div>
-            <div *ngFor="let error of field.validationRules">
+            <div class="error-message-area">
+              <ng-container *ngFor="let error of field.validationRules">
                 <small
                     *ngIf="error.length > 1 && form.controls[field.id]?.getError(error[0].toLowerCase()) && (form.get(field.id).touched  || form.get(field.id).dirty)"
                     class="p-invalid"
                 >
                     {{error[1]}}
                 </small>
+              </ng-container>
             </div>
         </ng-container>
         <div class="auth-form__footer">
