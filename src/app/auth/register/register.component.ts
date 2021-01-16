@@ -54,4 +54,7 @@ export class RegisterComponent {
       return null;
     }
   }
+  trackingFn(index: number, item: IFormField): string | number {
+    return item.id || index;
+  }
 }
