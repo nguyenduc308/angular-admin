@@ -1,6 +1,8 @@
 import { IFormField } from '@/shared/interfaces/form-field';
 
 export interface ILoginConfig {
-  fields: IFormField[];
+  fields: {
+    [key: string] : IFormField
+  };
   [key: string]: any;
 }

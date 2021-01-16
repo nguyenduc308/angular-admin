@@ -2,8 +2,8 @@ import { ILoginConfig } from "./login.interface";
 
 export const LOGIN_CMS_CONFIG: ILoginConfig = {
   submitLabel: 'Đăng nhập',
-  fields: [
-    {
+  fields: {
+    phoneNumber: {
       label: 'Phone number',
       id: 'phoneNumber',
       value: '',
@@ -13,7 +13,7 @@ export const LOGIN_CMS_CONFIG: ILoginConfig = {
         ['minLength', 'Phone number invalid', 10],
       ],
     },
-    {
+    password: {
       label: 'Password',
       id: 'password',
       value: '',
@@ -23,5 +23,5 @@ export const LOGIN_CMS_CONFIG: ILoginConfig = {
         ['minLength', 'Password must be has length than 6', 6],
       ],
     },
-  ],
+  },
 };

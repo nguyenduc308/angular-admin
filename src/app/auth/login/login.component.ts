@@ -1,6 +1,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+
+import { genarateFormField } from '@/shared/helpers/genarate-form-fields';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LOGIN_CMS_CONFIG } from './login-cms';
+import { IFormField } from '@/shared/interfaces/form-field';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,22 +12,17 @@ import { LOGIN_CMS_CONFIG } from './login-cms';
 export class LoginComponent {
   form: FormGroup;
   config = LOGIN_CMS_CONFIG;
+  fields: IFormField[];
 
-  constructor(private _fb: FormBuilder) {
+  constructor(
+    private readonly _fb: FormBuilder,
+    ) {
     this.createForm();
   }
 
   createForm() {
-    let formFields = {};
-    this.config.fields.forEach((item) => {
-      const validations = item.validationRules.map((rule) => {
-        if (rule.length === 3) {
-          return Validators[rule[0]](rule[2]);
-        }
-        return Validators[rule[0]];
-      });
-      formFields[item.id] = [item.value, validations];
-    });
+    this.fields = Object.values(this.config.fields)
+    let formFields = genarateFormField(this.config.fields);
     this.form = this._fb.group(formFields);
   }
   onFieldChange(e) {
