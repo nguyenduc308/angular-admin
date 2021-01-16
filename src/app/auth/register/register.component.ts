@@ -39,7 +39,7 @@ export class RegisterComponent {
   }
   validateConfirmPassword(control: FormControl): {[key: string]: any} | null {
     if (this.form) {
-      if (control.errors && Object.keys(control.errors).length) {
+      if (control.errors && control.hasError('required')) {
         return null;
       }
       const passwordControl = this.form.get('password');

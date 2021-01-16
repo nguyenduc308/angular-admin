@@ -3,20 +3,20 @@
         <ng-container *ngFor="let field of fields">
             <div class="p-float-label form-group">
                 <input
-                    class="float-input"
-                    type="text"
-                    pInputText
-                    [id]="field.id"
-                    [formControlName]="field.id"
-                    (input)="onFieldChange($event)"
+                  class="float-input"
+                  type="text"
+                  pInputText
+                  [id]="field.id"
+                  [formControlName]="field.id"
+                  (input)="onFieldChange($event)"
                 />
                 <label [for]="field.id">{{field.label}}</label>
             </div>
             <div class="error-message-area">
               <ng-container *ngFor="let error of field.validationRules">
                 <small
-                    *ngIf="error.length > 1 && form.controls[field.id]?.getError(error[0].toLowerCase()) && (form.get(field.id).touched  || form.get(field.id).dirty)"
-                    class="p-invalid"
+                  *ngIf="error.length > 1 && form.controls[field.id]?.getError(error[0].toLowerCase()) && ((form.get(field.id).touched  && form.get(field.id).dirty) || !form.get(field.id).pristine)"
+                  class="p-invalid"
                 >
                     {{error[1]}}
                 </small>
