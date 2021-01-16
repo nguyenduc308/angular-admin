@@ -4,6 +4,7 @@ import { genarateFormField } from '@/shared/helpers/genarate-form-fields';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LOGIN_CMS_CONFIG } from './login-cms';
 import { IFormField } from '@/shared/interfaces/form-field';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,21 +17,22 @@ export class LoginComponent {
 
   constructor(
     private readonly _fb: FormBuilder,
-    ) {
+    private readonly _authService: AuthService
+  ) {
     this.createForm();
   }
 
   createForm() {
-    this.fields = Object.values(this.config.fields)
+    this.fields = Object.values(this.config.fields);
     let formFields = genarateFormField(this.config.fields);
     this.form = this._fb.group(formFields);
     this.form.reset();
   }
-  onFieldChange(e) {
-    console.log(e);
-  }
+  onFieldChange(e) {}
 
-  submit() {
-    console.log(this.form.value);
+  submit(): void {
+    this._authService.login(this.form.value).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

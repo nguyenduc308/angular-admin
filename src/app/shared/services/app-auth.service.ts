@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppAuthService {
-  private _isAuth: boolean = false;
+  private _isAuthSubject = new BehaviorSubject<boolean>(false);
 
   get isAuth$(): Observable<boolean> {
-    return of(this._isAuth);
+    return this._isAuthSubject.asObservable();
+  }
+  setAuth(isAuth: boolean): void {
+    this._isAuthSubject.next(isAuth);
   }
 }

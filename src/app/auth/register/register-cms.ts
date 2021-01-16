@@ -1,4 +1,4 @@
-import { IRegisterConfig } from "./register.interface";
+import { IRegisterConfig } from './register.interface';
 
 export const REGISTER_CMS_CONFIG: IRegisterConfig = {
   submitLabel: 'Đăng ký',
@@ -29,9 +29,7 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       id: 'email',
       value: '',
       type: 'text',
-      validationRules: [
-        ['required', 'Email is required']
-      ],
+      validationRules: [['required', 'Email is required']],
     },
     phoneNumber: {
       label: 'Phone number',
@@ -60,7 +58,8 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       type: 'text',
       validationRules: [
         ['required', 'Password is required'],
+        ['confirmPassword', 'Confirm Password do not match'],
       ],
     },
   },
-}
+};

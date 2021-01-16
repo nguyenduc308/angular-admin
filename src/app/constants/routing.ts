@@ -6,6 +6,7 @@ export const ROUTING_MAP = Object.freeze({
     root: 'auth',
     children: {
       login: 'login',
+      register: 'register',
     },
   },
 });
