@@ -8,6 +8,10 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       id: 'firstName',
       value: '',
       type: 'text',
+      group: {
+        index: 1,
+        type: 'col-2',
+      },
       validationRules: [],
     },
     lastName: {
@@ -15,6 +19,10 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       id: 'lastName',
       value: '',
       type: 'text',
+      group: {
+        index: 1,
+        type: 'col-2',
+      },
       validationRules: [],
     },
     address: {
@@ -22,6 +30,10 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       id: 'address',
       value: '',
       type: 'text',
+      group: {
+        index: 2,
+        type: 'col',
+      },
       validationRules: [],
     },
     email: {
@@ -29,6 +41,10 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       id: 'email',
       value: '',
       type: 'text',
+      group: {
+        index: 3,
+        type: 'col',
+      },
       validationRules: [['required', 'Email is required']],
     },
     phone: {
@@ -36,6 +52,10 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       id: 'phone',
       value: '',
       type: 'text',
+      group: {
+        index: 4,
+        type: 'col',
+      },
       validationRules: [
         ['required', 'Phone number is required'],
         ['minLength', 'Phone number invalid', 10],
@@ -46,6 +66,10 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       id: 'password',
       value: '',
       type: 'text',
+      group: {
+        index: 5,
+        type: 'col',
+      },
       validationRules: [
         ['required', 'Password is required'],
         ['minLength', 'Password must be has length than 6', 6],
@@ -56,6 +80,10 @@ export const REGISTER_CMS_CONFIG: IRegisterConfig = {
       id: 'confirmPassword',
       value: '',
       type: 'text',
+      group: {
+        index: 6,
+        type: 'col',
+      },
       validationRules: [['required', 'Password is required']],
     },
   },

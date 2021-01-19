@@ -11,6 +11,7 @@ import { REGISTER_CMS_CONFIG } from './register-cms';
 export class RegisterComponent {
   form: FormGroup;
   fields: IFormField[];
+  uiSchema: any[];
   config = REGISTER_CMS_CONFIG;
 
   constructor(
@@ -33,6 +34,29 @@ export class RegisterComponent {
       this._cdr.markForCheck();
     }
     this.fields = Object.values(this.config.fields);
+    const uiSchemaGroup = new Map<number, IFormField[]>();
+    Object.values(this.config.fields).forEach((field, index) => {
+      if (field.group) {
+        uiSchemaGroup.set(field.group.index, [
+          ...(uiSchemaGroup.get(field.group.index) || []),
+          field,
+        ]);
+      }
+      if (!field.group) {
+        let keys: number[] = [];
+        for (let key of uiSchemaGroup.keys()) {
+          keys.push(key);
+        }
+        const index = Math.max(...keys);
+        uiSchemaGroup.set(index + 1, [field]);
+      }
+    });
+
+    const indexs = [...uiSchemaGroup.keys()];
+    this.uiSchema = indexs
+      .sort((a, b) => a - b)
+      .map((i) => uiSchemaGroup.get(i));
+
     this.form = this._fb.group(formFields);
   }
   onFieldChange(e) {

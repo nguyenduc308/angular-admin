@@ -1,3 +1,7 @@
+.auth-page {
+  width: 400px;
+  margin: 0 auto;
+}
 .auth-form {
   margin-top: 100px;
 }
@@ -9,4 +13,21 @@
 }
 .error-message-area {
   height: 40px;
+}
+.group {
+  display: flex;
+  justify-content: space-between;
+}
+.col-2 {
+  width: 180px;
+}
+.col {
+  width: 100%;
+}
+
+.col-2 input {
+  width: 100%;
+}
+.col input {
+  width: 100%;
 }
